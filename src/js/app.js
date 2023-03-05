@@ -26,6 +26,7 @@ function darkChange() {
         // Está activado darkMode, por lo que se desactiva
         window.localStorage.setItem('dark', false);
         document.body.classList.remove('dark-mode');
+        
     }
 }
 
