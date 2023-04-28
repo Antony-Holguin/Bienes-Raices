@@ -1,5 +1,11 @@
 <?php
 require 'includes/config/database.php';
+require('../bienesraices/includes/funciones.php');
+// $auth = estaAutenticado();
+// if(!$auth){
+//     header('Location: index.php');
+// }
+
 $db = conectarDB();
 //Validar usuario
 $errores = [];
@@ -29,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $autenticado = password_verify($password, $usuario['password']);
             if($autenticado){
                 session_start();
-                echo '<pre>';
-                    var_dump($_SESSION);
-                echo '</pre>';
+                $_SESSION['AUTENTICADO'] = true;
+                $_SESSION['nombre'] = $usuario['email'];
+                header('Location: index.php');
             }else{
                 $errores[] = 'La contrasena es invalida';
             }
@@ -43,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 //Incluir cabecera
-require('../bienesraices/includes/funciones.php');
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion contenido-centrado">

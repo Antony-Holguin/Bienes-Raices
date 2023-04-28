@@ -1,4 +1,9 @@
 <?php
+require('../../includes/funciones.php');
+$auth = estaAutenticado();
+if(!$auth){
+    header('Location: ../');
+}
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT); //Filtro que solo se puedan pasar solo datos numericos y no cualquier cosa
 if (!($id)) {
@@ -133,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-require('../../includes/funciones.php');
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">

@@ -1,4 +1,9 @@
 <?php
+require('../../bienesraices/includes/funciones.php');
+$auth = estaAutenticado();
+if(!$auth){
+    header('Location: ../');
+}
 //Importar la conexion de base de datos
 require '../../bienesraices/includes/config/database.php';
 $db = conectarDB();
@@ -34,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //Si hay una peticion POST
     }
 }
 
-require('../includes/funciones.php');
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
