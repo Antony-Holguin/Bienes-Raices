@@ -24,9 +24,18 @@ CREATE TABLE propiedades(
     FOREIGN KEY(id_vendedor) REFERENCES vendedor(id_vendedor)
 );
 
+USE bienesraices_crud;
+CREATE TABLE usuarios(
+    id_usuario INT(1) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    email varchar(50) NOT NULL,
+    password char(60)
+);
+
 use bienesraices_crud;
 SELECT * FROM propiedades;
 SELECT * FROM vendedor;
+SELECT * FROM usuarios;
 use bienesraices_crud;
 INSERT INTO vendedor (id_vendedor, nombre_vendedor, apellido_vendedor, telefono_vendedor) VALUES (null, 'Stiven', 'Paul', '0985141410');
 INSERT INTO vendedor (id_vendedor, nombre_vendedor, apellido_vendedor, telefono_vendedor) VALUES (null, 'Antony', 'Holguin', '0967617518');
+
